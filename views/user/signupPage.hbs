@@ -1,0 +1,29 @@
+<h1>Become a bean in a our great big bag</h1>
+
+<br>
+{{#if errorMessage}}
+
+<div><b>{{errorMessage}}</b></div>
+
+{{/if}}
+<br>
+
+<form action="/signup" method="post">
+
+<div>
+  <label for="username">Create a Username</label>
+  <br>
+  <input type="text" id="username" name="theUsername" placeholder="Beany Baby">
+  <br>
+  <label for="password">Create a Password</label>
+  <br>
+  <input type="password" id="password" name="thePassword">
+  <br>
+  <label>Repeat Password</label>
+  <br>
+  <input type="password" name="repeatPassword">
+</div>
+
+<button type="submit">Let's get Brewing!</button>
+
+</form>

@@ -1,2 +1,20 @@
+<nav>
+  <div class="nav-links">
+    <a href="/signup">Sign In Here</a>
+    <a href="/login">Log Back In</a>
+    <a href="/logout">logout</a>
+
+    {{#if theUser}}
+      <span>
+        Hello {{theUser.username}}!
+      </span>
+    {{/if}}
+
+  </div>
+  
+</nav>
+
 <h1>{{title}}</h1>
+
 <p>Welcome to {{title}}</p>
+
