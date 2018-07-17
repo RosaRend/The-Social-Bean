@@ -16,10 +16,15 @@ nav{
 }
 header{
   text-align: center;
+  border: solid 1px black;
 }
 .per-Page-Stuff{
   color: #7e7878;
   
 }
-
+section > aside{
+  width: 250px;
+  border: solid 1px black;
+  float: right;
+}
 

@@ -1,0 +1,20 @@
+<nav>
+  <div class="nav-links">
+    {{!-- <a href="/user/{{._id}}">{{theUser.theUsername}}</a> --}}
+    <a href="/logout">Logout</a>
+  </div>
+</nav>
+<div>
+  <h2>Create your own Cafe!</h2>
+  <p><a href="/groups/new">Here</a>!</p>
+</div>
+<div>
+    {{#each listOfGroups}}
+      <div>
+        <span>{{this.image}}</span>
+        <h3>{{this.name}}</h3>
+        <p>{{this.description}}</p>
+     </div>
+     <hr>
+    {{/each}}
+</div>

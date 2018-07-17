@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const groupSchema = new Schema({
-  username: `${theUsername}`, 
-})
+  image: {type: String, defult: "../public/images/groupDefault.jpeg"},
+  name: String,
+  members: Number,
+  description: String 
+});
 
 const Group = mongoose.model('Group', groupSchema);
 

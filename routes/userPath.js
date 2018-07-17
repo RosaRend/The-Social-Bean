@@ -55,24 +55,28 @@ userRoute.post("/login", passport.authenticate("local", {
 
 
 
-userRoute.get('/user/Page', (req, res, next)=>{
-  res.render('user/userPersonalPage');
-})
+// userRoute.get('/user/Page', (req, res, next)=>{
+//   // res.render('user/userPersonalPage');
+//   // userRoute.get('/user/Page', (req, res, next)=>{
 
-
-// userRoute.get('/user/:id', (req, res, next)=>{
-//   const id = req.params.id;
+//     res.render("user/userPersonalPage", { User: req.user });
   
-//   User.findById(id)
-//   .then((theUser)=>{
-     
-//     res.render('user/userPersonalPage', {theUser});
-//   })
-//   .catch((err)=>{
-//     console.log('can get user from data')
-//     next('Oh no check your code. Line 55.', err)
-//   });
 // });
+
+
+userRoute.get('/user/Page', (req, res, next)=>{
+  const id = req.params.id;
+  
+  User.findById(id)
+  .then((theUser)=>{
+    console.log(req.params.id);
+    res.render('user/userPersonalPage', {theUser});
+  })
+  .catch((err)=>{
+    console.log('can get user from data');
+    next('Oh no check your code. Line 55.', err);
+  });
+});
 
 userRoute.get("/logout", (req, res, next)=>{
   req.logout();

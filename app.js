@@ -102,4 +102,7 @@ app.use('/', index);
 const userPath = require('./routes/userPath');
 app.use('', userPath);
 
+const groupRoute = require('./routes/groupRoute');
+app.use('', groupRoute);
+
 module.exports = app;
