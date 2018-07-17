@@ -2,6 +2,7 @@ const express     = require('express');
 const bcrypt      = require('bcryptjs');
 const passport    = require('passport');
 const userRoute   = express.Router();
+const ensureLogin = require('connect-ensure-login');
 
 const User        = require('../models/users');
 
@@ -46,7 +47,7 @@ userRoute.get('/login', (req, res, next)=>{
 });
 
 userRoute.post("/login", passport.authenticate("local", {
-  successRedirect: "/user/Page", 
+  successRedirect: "/", 
   failureRedirect: "/login",
   failureFlash: true,
   passReqToCallback: true
@@ -64,9 +65,9 @@ userRoute.post("/login", passport.authenticate("local", {
 // });
 
 
-userRoute.get('/user/Page', (req, res, next)=>{
+userRoute.get('/user/page/:id', ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const id = req.params.id;
-  
+  console.log('this is the id before the then statment ========================= ', id)
   User.findById(id)
   .then((theUser)=>{
     console.log(req.params.id);

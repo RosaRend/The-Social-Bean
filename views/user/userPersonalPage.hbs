@@ -1,9 +1,5 @@
-<nav>
-  <div class="nav-links" >
-    <a href="/groups">Join a Cafe</a>
-    <a href="/logout">Logout</a>
-  </div>
-</nav>
+
+
 <header>
   <h1>Welcome</h1>
   <div>
@@ -14,13 +10,24 @@
   </div>
 </header>
 <section>
-  <aside>
-    <div>
-      {{image}}
+  <aside class="user-groups">
+    <h3>Cafe's</h3>
+    {{#each theUser.group}}
+      {{group.image}}
+      {{group.name}}
+    {{/each}}
+    <div class="per-Page-Stuff">
+      <p>Don't forget you can always join a new <b><a href="/groups">Cafe</a></b> anytime.</p>
     </div>
-    <h4>{{theUsername}}</h4>
+  </aside>
+  <aside class="user-section">
+    
+    <div>
+      What<img src="{{theUser.image}}" alt="">
+    </div>
+    <h3>Username: {{theUser.username}}</h3>
     <p>Bio</p>
     <p>Other Stuff</p>
-    
   </aside>
+
 </section>

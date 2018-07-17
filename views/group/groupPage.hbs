@@ -1,18 +1,14 @@
-<nav>
-  <div class="nav-links">
-    {{!-- <a href="/user/{{._id}}">{{theUser.theUsername}}</a> --}}
-    <a href="/logout">Logout</a>
-  </div>
-</nav>
+
 <div>
-  <h2>Create your own Cafe!</h2>
-  <p><a href="/groups/new">Here</a>!</p>
+  <h2>Create your own <a href="/groups/new">Cafe</a>!</h2>
+  
 </div>
 <div>
     {{#each listOfGroups}}
       <div>
-        <span>{{this.image}}</span>
-        <h3>{{this.name}}</h3>
+        <img src="{{this.image}}" alt="">
+        
+        <h3><a href={{this._id}}>{{this.name}}</a></h3>
         <p>{{this.description}}</p>
      </div>
      <hr>

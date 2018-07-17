@@ -1,0 +1,23 @@
+<header>
+
+</header>
+
+<div class="members">
+  <div class="group-img">
+    <img src="/images/groupDefault.jpeg" alt="Cafe default image">
+  </div>
+  <div class="group-user">
+    {{#each users}}
+      {{this.image}}
+      {{this.username}}
+    {{/each}}
+  </div>
+  <div id="chatbox"></div>
+  <div class="chat-box">
+    <label>Say Hello</label>
+    <input type="text" id="chatMessage">
+
+    <button id="sendChat">Send</button>
+  </div>
+  
+</div>

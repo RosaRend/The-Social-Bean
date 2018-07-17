@@ -44,15 +44,17 @@ route.post('/groups/create', (req, res, next)=>{
   });
 });
 
-route.get('/groups/:id', (req, res, next)=>{
+
+route.get('/group/:id', (req, res, next)=>{
   const id = req.params.id;
 
-  Group.findById(id)
-  .then((theGoup)=>{
-    res.render('/groupPage', {theGoup});
+  Group.findById(id);
+  console.log(id)
+  .then((theGroup)=>{
+    res.render('/group/oneGroup', {theGroup});
   })
   .catch((err)=>{
-    next(err);
+    next('Oh no! An error accurred!', err);
   });
 });
 

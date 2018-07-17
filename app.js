@@ -103,6 +103,6 @@ const userPath = require('./routes/userPath');
 app.use('', userPath);
 
 const groupRoute = require('./routes/groupRoute');
-app.use('', groupRoute);
+app.use('', ensureLogin.ensureLoggedIn(), groupRoute);
 
 module.exports = app;
