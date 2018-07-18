@@ -23,10 +23,11 @@
   <aside class="user-section">
     
     <div>
-      What<img src="{{theUser.image}}" alt="">
+      <img src="{{theUser.image}}" alt="You">
     </div>
-    <h3>Username: {{theUser.username}}</h3>
-    <p>Bio</p>
+    <span>Username: {{theUser.username}}</span>
+    <span class="edit-icon"><a href="/user/profileInfo/:id"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></a></span>
+    <p name="theBio" >Bio</p>
     <p>Other Stuff</p>
   </aside>
 

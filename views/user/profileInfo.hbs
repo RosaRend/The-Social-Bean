@@ -1,8 +1,13 @@
 <h1>Let's get to know each other!</h1>
+<div class="profile-form">
 
-<form action="" method="get">
+<form action="/user/{{}}" method="post" enctype="multipart/form-data">
+
   <div>
+  <input type="file" name="photo">
+  <br>
     <label for="">Bio</label>
+    <br>
     <textarea name="theBio" id="bio" cols="20" rows="10" placeholder="Let people know what type of bean you are. Silly Bean. Healthy Bean. Fancy Bean."></textarea>
   </div>
 
@@ -14,12 +19,21 @@
 
   <div>
     <label for="">Favorite Place to Be</label>
+    <br>
     <input type="text" id="favPlace" name="theFavPlace">
   </div>
 
   <div>
     <label for="">What's your favorite cup of coffee?</label>
+    <select name="coffee" required="true">
+      <option value="null"></option>
+      {{#each allCoffeeTypes}}
+      <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
   </div>
+  <button type="submit">EDIT</button>
 
 </form>
 
+</div>

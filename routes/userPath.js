@@ -3,9 +3,12 @@ const bcrypt      = require('bcryptjs');
 const passport    = require('passport');
 const userRoute   = express.Router();
 const ensureLogin = require('connect-ensure-login');
+const multer      = require('multer');
 
+
+const uploadCloud = require('../config/cloudinary');
 const User        = require('../models/users');
-
+const Coffee      = require('../models/coffeeModel')
 
 userRoute.get('/signup', (req, res, next)=>{
   
@@ -17,7 +20,7 @@ userRoute.post('/signup', (req, res, next)=>{
   const theUsername = req.body.theUsername;
   
   if(thePassword === "" || theUsername === ""){
-    res.render('user/signupPage', {errorMessage: "Please fiil out all fields to gain access."});
+    res.render('user/signupPage', {errorMessage: "Please fill in all fields to gain access."});
     return;
   }
   
@@ -54,8 +57,6 @@ userRoute.post("/login", passport.authenticate("local", {
 }));
 
 
-
-
 // userRoute.get('/user/Page', (req, res, next)=>{
 //   // res.render('user/userPersonalPage');
 //   // userRoute.get('/user/Page', (req, res, next)=>{
@@ -64,10 +65,33 @@ userRoute.post("/login", passport.authenticate("local", {
   
 // });
 
+userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, next)=>{
+
+  Coffee.find()
+  .then((allCoffeeTypes)=>{
+    res.render('user/profileInfo', {allCoffeeTypes})
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
+//image: req.file.url
+
+userRoute.post('/user/profileInfo/:id', uploadCloud.single('photo'), (req, res, next)=>{
+  const theBio = req.body;
+  const id = req.params.id;
+  User.findByIdAndUpdate(id, {$push: {userBio: theBio}
+  .then((response)=>{
+    res.redirect(`/user/page/${req.params.id}`);
+  })
+  .catch((err)=>{
+    next(err);
+  })
+  });
+});
 
 userRoute.get('/user/page/:id', ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const id = req.params.id;
-  console.log('this is the id before the then statment ========================= ', id)
   User.findById(id)
   .then((theUser)=>{
     console.log(req.params.id);

@@ -6,9 +6,9 @@
   <div class="group-img">
     <img src="/images/groupDefault.jpeg" alt="Cafe default image">
   </div>
-  <div class="group-user">
+  {{!-- <div class="group-user">
     {{#each users}}
-      {{this.image}}
+     <span>{{this.image}}</span>
       {{this.username}}
     {{/each}}
   </div>
@@ -20,4 +20,18 @@
     <button id="sendChat">Send</button>
   </div>
   
+</div> --}}
+
+<div class='center-chatbox'>
+  <h3>The Cafe name here</h3>
+  <p id="users-name"></p>
+
+  <div id="chatbox"><div id="chat-area"></div></div>
+
+  <form id="sendChat">
+    <p>Say Hello: </p>
+    <textarea id="sendIt" maxlength="100"></textarea>
+  </form>
+
 </div>
+

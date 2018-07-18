@@ -44,14 +44,29 @@ route.post('/groups/create', (req, res, next)=>{
   });
 });
 
+route.post('/group/:id/update', (req, res, next)=>{
+  Group.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+  })
+})
+
+route.post('/groups/:id/remove', (req, res, next)=>{
+  Group.findByIdAndRemove(req.params.id)
+  .then((reponse)=>{
+    res.redirect('/group/groupPage');
+  })
+  .catch((err)=>{
+    next(err);
+  });
+});
 
 route.get('/group/:id', (req, res, next)=>{
   const id = req.params.id;
 
-  Group.findById(id);
   console.log(id)
+  Group.findById(id)
   .then((theGroup)=>{
-    res.render('/group/oneGroup', {theGroup});
+    res.render('group/oneGroup', {theGroup});
   })
   .catch((err)=>{
     next('Oh no! An error accurred!', err);

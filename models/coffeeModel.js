@@ -4,10 +4,11 @@ const Schema   = mongoose.Schema;
 
 const coffeeSchema = new Schema({
   name: String,
-  descrpition: String,
+  description: String,
   image: String,
-  typicalDrinkers: String
-})
+  origin: String,
+  served: String
+});
 
 const Coffee = mongoose.model('Coffee', coffeeSchema);
 

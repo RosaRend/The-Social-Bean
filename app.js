@@ -15,7 +15,9 @@ const LocalStrategy= require('passport-local').Strategy;
 const flash        = require('connect-flash');
 const ensureLogin  = require('connect-ensure-login');
 const passport     = require('passport');
-
+// const Uppy         = require('@uppy/core');
+// const XHRUpload    = require('@uppy/xhr-upload');
+// const DragDrop     = require('@uppy/drag-drop');
 
 const User         = require('./models/users');
 //migul cardona 
@@ -73,6 +75,12 @@ passport.deserializeUser((id, cb) =>{
 });
 app.use(flash());
 
+// passport.use(new LocalStrategy({
+//   usernameField: 'email',
+// },
+// function( usernameField: ‘email’,)
+// ))
+
 passport.use(new LocalStrategy((username, password, next)=>{
   User.findOne({username}, (err, user) =>{
     if(err){
@@ -101,6 +109,9 @@ app.use('/', index);
 
 const userPath = require('./routes/userPath');
 app.use('', userPath);
+
+const coffeeRoutes = require('./routes/coffeeRoutes');
+app.use('', coffeeRoutes);
 
 const groupRoute = require('./routes/groupRoute');
 app.use('', ensureLogin.ensureLoggedIn(), groupRoute);

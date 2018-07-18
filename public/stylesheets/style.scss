@@ -62,3 +62,13 @@ section{
   border: solid 1px black;
   align-self: flex-start;
 }
+
+.edit-icon > a > img{
+  width: 10px;
+}
+
+.profile-form{
+  display: flex;
+  justify-content: center;
+  border: solid 1px #000;
+}
