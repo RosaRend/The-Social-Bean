@@ -82,7 +82,7 @@ userRoute.post('/user/profileInfo/:id', uploadCloud.single('photo'), (req, res, 
   const id = req.params.id;
   User.findByIdAndUpdate(id, {$push: {userBio: theBio}
   .then((response)=>{
-    res.redirect(`/user/page/${req.params.id}`);
+    res.redirect(`/user/page/${theUser.id}`);
   })
   .catch((err)=>{
     next(err);
