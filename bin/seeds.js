@@ -1,8 +1,8 @@
 const mongoose  = require('mongoose');
 const Coffee    = require('../models/coffeeModel');
 
-const dbName    = 'the-social-bean';
-mongoose.connect(`mongodb://localhost/${dbName}`);
+// const dbName    = 'the-social-bean';
+mongoose.connect(process.env.MONGODB_URI);
 
 const coffeeTypes = [
   {
