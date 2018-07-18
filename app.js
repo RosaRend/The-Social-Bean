@@ -25,7 +25,7 @@ const User         = require('./models/users');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/the-social-bean', {useMongoClient: true})
+  .connect(process.env.MONGODB_URI, {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!');
   }).catch(err => {
