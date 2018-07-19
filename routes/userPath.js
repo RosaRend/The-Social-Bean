@@ -8,7 +8,7 @@ const multer      = require('multer');
 
 const uploadCloud = require('../config/cloudinary');
 const User        = require('../models/users');
-const Coffee      = require('../models/coffeeModel')
+const Coffee      = require('../models/coffeeModel');
 
 userRoute.get('/signup', (req, res, next)=>{
   
@@ -66,7 +66,14 @@ userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, 
 
   Coffee.find()
   .then((allCoffeeTypes)=>{
-    res.render('user/profileInfo', {allCoffeeTypes})
+    User.findById(req.user)
+    .then((userFromDB) => {
+      var data = {
+        allCoffeeTypes: allCoffeeTypes,
+        theUser: userFromDB
+      };
+      res.render('user/profileInfo', data);
+    });
   })
   .catch((err)=>{
     next(err);
@@ -74,14 +81,20 @@ userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, 
 });
 //image: req.file.url
 
-userRoute.post('/user/profileInfo/:id', uploadCloud.single('photo'), (req, res, next)=>{
-  const userBio = req.body;
-  const id = req.user;
+userRoute.post('/user/profileInfo/:id', (req, res, next)=>{
+  const userBio = {
+    bio:  req.body.theBio,
+    quote: req.body.theQuote,
+    fav: req.body.theFavPlace,
+    pic: req.body.photo
+  };
+  const id = req.params.id;
 
-  console.log('From line 82, the id ', id)
+  console.log('From line 92, the id ', id);
+
   User.findByIdAndUpdate(id, {$push: {profile: userBio}
   .then((response)=>{
-    res.redirect(`user/userPersonalPage`);
+    res.redirect(`user/userPersonalPage/`, response);
   })
   .catch((err)=>{
     next(err);
@@ -98,7 +111,7 @@ userRoute.get('/user/page/:id', ensureLogin.ensureLoggedIn(), (req, res, next)=>
   })
   .catch((err)=>{
     console.log('can get user from data');
-    next('Oh no check your code. Line 55.', err);
+    next('Oh no check your code. Line 112.', err);
   });
 });
 

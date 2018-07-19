@@ -30,10 +30,14 @@
     <div>
       <img src="{{theUser.image}}" alt="You">
     </div>
-    <span>Username: {{theUser.username}}</span>
-    <span class="edit-icon"><a href="/user/profileInfo/:id"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></a></span>
-    <p>Bio</p>
-    <p>Other Stuff</p>
+    <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
+    {{!-- <span class="edit-icon"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></span> --}}
+    {{#each theUser.profile}}
+    <p>{{this.theBio}}</p>
+    <p><i>{{this.theQuote}}</i></p>
+    <p><b>{{this.theFavPlace}}</b></p>
+    <p>{{this.coffee}}</p>
+    {{/each}}
   </aside>
 
 </section>

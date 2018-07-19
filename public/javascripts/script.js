@@ -15,40 +15,41 @@
 document.getElementById('sendChat').onclick = function(){
   var theMessage = document.getElementById('message').value;
   var newRow = document.createElement('div');
+  
   newRow.className = 'sending';
   newRow.innerHTML = `
   <div class="col-xs-5"> 
-    <span class="aMes">${theMessage}</span>
+    <div class="aMess">${theMessage}</div>
   </div>
   `;
-  document.getElementById('chatbox').appendChild(newRow);
-}
+  document.getElementById('chatArea').appendChild(newRow);
+};
 
 
-$('#openChat').click(function(){
+// $('#openChat').click(function(){
 
-  axios.get('https://api.twitter.com/1.1/users/show.json')
-  // axios.get('https://ih-crud-api.herokuapp.com/characters')
+//   axios.get('https://api.twitter.com/1.1/users/show.json')
+//   // axios.get('https://ih-crud-api.herokuapp.com/characters')
 
-  .then((response)=>{
+//   .then((response)=>{
 
-    $('#chatbox').empty();
+//     $('#chatbox').empty();
 
-    response.forEach((oneMessage) => {
-      const newMes = `
-      <div>
-      <img src="${oneMessage.image}" alt="Cafe image">
-      <span>${oneMessage.name}</span>
-      <p>${oneMessage.message}</p>
-      `;
-      $('#chatbox').append(newMes);
-    });
-  });
+//     response.forEach((oneMessage) => {
+//       const newMes = `
+//       <div>
+//       <img src="${oneMessage.image}" alt="Cafe image">
+//       <span>${oneMessage.name}</span>
+//       <p>${oneMessage.message}</p>
+//       `;
+//       $('#chatbox').append(newMes);
+//     });
+//   });
 
-});
+// });
 
-$('#sendChat').click(function(){
-  const theBio = $('#chatmessage')
-  const theQuote = $()
-  const theFavPlace = $()
-})
+// $('#sendChat').click(function(){
+//   const theBio = $('#chatmessage')
+//   const theQuote = $()
+//   const theFavPlace = $()
+// })

@@ -3,7 +3,10 @@ const express     = require('express');
 // const passport    = require('passport');
 const ensureLogin = require('connect-ensure-login');
 const route       = express.Router();
+const multer      = require('multer');
 
+
+const uploadCloud = require('../config/cloudinary');
 const Group       = require('../models/groupsModel');
 
 route.get('/groups', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
@@ -47,8 +50,8 @@ route.post('/groups/create', (req, res, next)=>{
 route.post('/group/:id/update', (req, res, next)=>{
   Group.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
-  })
-})
+  });
+});
 
 route.post('/groups/:id/remove', (req, res, next)=>{
   Group.findByIdAndRemove(req.params.id)
@@ -60,10 +63,12 @@ route.post('/groups/:id/remove', (req, res, next)=>{
   });
 });
 
+//uploadCloud.single('photo')
+
 route.get('/group/:id', (req, res, next)=>{
   const id = req.params.id;
 
-  console.log(id)
+  // console.log(id)
   Group.findById(id)
   .then((theGroup)=>{
     res.render('group/oneGroup', {theGroup});
