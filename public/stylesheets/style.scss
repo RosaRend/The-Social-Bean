@@ -1,16 +1,20 @@
 body {
-  padding: 30px;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
   text-decoration: none;
   color: chocolate;
 }
 .welcome-screen{
-  width: 500px;
-  height: 300px;
+  width: 100vw;
+  height: 100vh;
+  // background-color: red;
+  background-image: url(https://cdn.pixabay.com/photo/2017/06/02/11/49/still-life-2366084_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
   text-align: center;
   border: solid 1px burlywood;
 }
@@ -49,12 +53,15 @@ section{
   border: solid 1px black;
   align-self: flex-end;
 }
+
 .user-section > h4{
   text-align: center;
 }
+
 .user-groups > h4{
   text-align: center;
 }
+
 .user-groups{
   padding: 10px;
   width: 250px;
@@ -71,4 +78,17 @@ section{
   display: flex;
   justify-content: center;
   border: solid 1px #000;
+  height: 100%;
+}
+.profile{
+  width: 100vw;
+  height: 100vh;
+  background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+page-content{
+  border: solid 1px black;
+  display: flex;
+
 }

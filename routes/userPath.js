@@ -56,13 +56,10 @@ userRoute.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-
 // userRoute.get('/user/Page', (req, res, next)=>{
 //   // res.render('user/userPersonalPage');
 //   // userRoute.get('/user/Page', (req, res, next)=>{
-
 //     res.render("user/userPersonalPage", { User: req.user });
-  
 // });
 
 userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, next)=>{
@@ -78,11 +75,13 @@ userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, 
 //image: req.file.url
 
 userRoute.post('/user/profileInfo/:id', uploadCloud.single('photo'), (req, res, next)=>{
-  const theBio = req.body;
-  const id = req.params.id;
-  User.findByIdAndUpdate(id, {$push: {userBio: theBio}
+  const userBio = req.body;
+  const id = req.user;
+
+  console.log('From line 82, the id ', id)
+  User.findByIdAndUpdate(id, {$push: {profile: userBio}
   .then((response)=>{
-    res.redirect(`/user/page/${theUser.id}`);
+    res.redirect(`user/userPersonalPage`);
   })
   .catch((err)=>{
     next(err);

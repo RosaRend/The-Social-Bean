@@ -2,27 +2,35 @@
 
 </header>
 
+<div class="group-content">
+  The Page Content
+</div>
+
 <div class="members">
   <div class="group-img">
     <img src="/images/groupDefault.jpeg" alt="Cafe default image">
   </div>
-  {{!-- <div class="group-user">
+  <div class="group-user">
     {{#each users}}
      <span>{{this.image}}</span>
       {{this.username}}
     {{/each}}
   </div>
-  <div id="chatbox"></div>
-  <div class="chat-box">
-    <label>Say Hello</label>
-    <input type="text" id="chatMessage">
+  <div id="chatbox">
+    <div class="col-xs-5">
+      <textarea id="message" rows="2" col="20" maxlength="50" placeholder="Say Hello"></textarea>
+    </div>
 
-    <button id="sendChat">Send</button>
-  </div>
+    <div id="send">
+      <button id="sendChat" type="button">Send</button>
+    </div>
+
+    </div>
   
-</div> --}}
+</div>
 
-<div class='center-chatbox'>
+
+{{!-- <div class='center-chatbox'>
   <h3>The Cafe name here</h3>
   <p id="users-name"></p>
 
@@ -33,5 +41,5 @@
     <textarea id="sendIt" maxlength="100"></textarea>
   </form>
 
-</div>
+</div> --}}
 

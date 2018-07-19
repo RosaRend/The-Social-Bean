@@ -1,5 +1,4 @@
-
-
+<div class="profile">
 <header>
   <h1>Welcome</h1>
   <div>
@@ -12,12 +11,18 @@
 <section>
   <aside class="user-groups">
     <h3>Cafe's</h3>
-    {{#each theUser.group}}
-      {{group.image}}
-      {{group.name}}
+    {{#each theUser.groupsJoined}}
+      {{this.image}}
+      {{this.name}}
     {{/each}}
     <div class="per-Page-Stuff">
       <p>Don't forget you can always join a new <b><a href="/groups">Cafe</a></b> anytime.</p>
+    </div>
+  </aside>
+  <aside>
+    <div>
+      <h4>Feed</h4>
+      <p>What the user has posted.</p>
     </div>
   </aside>
   <aside class="user-section">
@@ -27,8 +32,10 @@
     </div>
     <span>Username: {{theUser.username}}</span>
     <span class="edit-icon"><a href="/user/profileInfo/:id"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></a></span>
-    <p name="theBio" >Bio</p>
+    <p>Bio</p>
     <p>Other Stuff</p>
   </aside>
 
 </section>
+
+</div>
