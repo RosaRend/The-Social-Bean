@@ -21,7 +21,7 @@
   </header>
 <div class="profile">
 <section>
-    <a class="btn-stuff" href="/user/page/{{theUser._id}}/post"><button>Click Me</button></a>
+    <a class="btn-stuff" href="/user/page/{{theUser._id}}"><button>Click Me</button></a>
   <aside class="profile-content">
 
     {{#each theUser.posts}}
@@ -36,10 +36,10 @@
       <img src="{{theUser.image}}" alt="You">
     </div>
     {{!-- <span class="edit-icon"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></span> --}}
-    {{!-- {{#if theUser.profile}} --}}
+    {{#if theUser.profile}}
       <img class="profile-pic" src="{{theUser.profile.pic}}" alt="">
       <br>
-      <h1>Hello <a href="/user/page/{{theUser._id}}">{{theUser.username}}</a>!</h1>
+      <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
       <p>Bio: {{theUser.profile.bio}}</p>
       <p>Favorite Saying: <i>{{theUser.profile.quote}}</i></p>
       <p>Favorite Spot: <b>{{theUser.profile.fav}}</b></p>
@@ -48,7 +48,7 @@
       <p>Description: {{coffee.description}}</p>
       <p>Place of Origin: {{coffee.origin}}</p>
       <p>Served: {{coffee.served}}</p>
-      {{!-- {{/if}} --}}
+      {{/if}}
     {{/if}}
   </aside>
 

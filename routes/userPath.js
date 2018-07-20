@@ -80,15 +80,6 @@ userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, 
   });
 });
 // image: req.file.url
-userRoute.get('/user/page/:id/post', (req, res, next)=>{
-
-  User.findById(req.params.id)
-  .then((userFromDB) => {
-    console.log("current user on user page load ####################### ", userFromDB);
-    res.render('user/postToPage', {theUser: userFromDB});
-  })
-})
-
 userRoute.post('/user/page/:id/post', uploadCloud.single('aPost'), (req, res, next)=>{
   const onePost = {
     post: req.file.url
@@ -106,6 +97,15 @@ userRoute.post('/user/page/:id/post', uploadCloud.single('aPost'), (req, res, ne
     next(err)
   });
 });
+userRoute.get('/user/page/:id/post', (req, res, next)=>{
+
+  User.findById(req.params.id)
+  .then((userFromDB) => {
+    console.log("current user on user page load ####################### ", userFromDB);
+    res.render('user/postToPage', {theUser: userFromDB});
+  })
+})
+
 
 userRoute.post('/user/profileInfo/:id', uploadCloud.single('photo'),  (req, res, next)=>{
   
