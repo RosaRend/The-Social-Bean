@@ -38,9 +38,12 @@ route.get('/groups/new', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
 route.post('/groups/create', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const newGroup = new Group({
     name: req.body.name,
-    image: req.file.url,
     description: req.body.description
   });
+  if(req.file){
+    newGroup.image = req.file.url;
+
+  }
   
   newGroup.save()
   .then((response)=>{
@@ -52,12 +55,24 @@ route.post('/groups/create', uploadCloud.single('photo'), ensureLogin.ensureLogg
   });
 });
 
+route.get('/group/:id/edit', (req, res, next) => {
+  const groupId = req.params.id;
+  Group.findById(groupId)
+  .then( foundGroup => {
+    res.render('group/editGroup', { group: foundGroup })
+  } )
+  .catch()
+});
+
+
 route.post('/group/:id/update', (req, res, next)=>{
+  // console.log('body is: ', req.body)
   Group.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
     description: req.body.description
   })
   .then((theGroup)=>{
+    // console.log('+++++++++++ ', theGroup)
     res.redirect('/groups');
   })
   .catch((err)=>{

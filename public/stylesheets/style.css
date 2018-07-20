@@ -1,6 +1,6 @@
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
@@ -10,11 +10,31 @@ a {
 .welcome-screen {
   width: 98vw;
   height: 100vh;
-  background-image: url(https://cdn.pixabay.com/photo/2017/06/02/11/49/still-life-2366084_960_720.jpg);
+  background-image: url(https://cdn.pixabay.com/photo/2015/05/07/13/46/cappuccino-756490__340.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   border: solid 1px burlywood; }
+
+.welcome-screen > h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 5rem;
+  text-shadow: 4px 3px 2px coral, 6px 4px 4px burlywood, 8px 6px 4px wheat; }
+
+.welcome-screen > p {
+  text-transform: capitalize;
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem; }
+
+.display-name {
+  display: flex;
+  align-items: center;
+  font-family: 'Pacifico', cursive;
+  text-transform: capitalize; }
 
 nav {
   width: 98vw;
@@ -24,12 +44,12 @@ nav {
   justify-content: space-between;
   text-decoration-style: none; }
 
-.nav-links {
-  text-decoration-style: none; }
-
 nav > a > img {
   width: 35px;
   align-self: flex-start; }
+
+.nav-links {
+  text-decoration-style: none; }
 
 header {
   text-align: center;
@@ -42,24 +62,6 @@ header {
 section {
   display: flex;
   justify-content: space-between; }
-
-.user-section {
-  padding: 10px;
-  width: 250px;
-  height: 450px;
-  border: solid 1px black;
-  align-self: flex-end; }
-
-.user-section > h4 {
-  text-align: center; }
-
-.user-groups > h4 {
-  text-align: center; }
-
-.profile-pic {
-  width: 30px;
-  border: solid 5px #a5572a;
-  border-radius: 50% 50%; }
 
 .user-groups {
   padding: 10px;
@@ -91,16 +93,44 @@ section {
   border: solid 1px #000;
   height: 100%; }
 
+.profile-pic {
+  width: 10px;
+  border: solid 5px #a5572a;
+  border-radius: 50% 50%; }
+
 .profile {
   width: 100vw;
   height: 100vh;
   background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: 100vw; }
+
+@media screen and (min-width: 500px) {
+  .group-content, .profile-content, .user-section {
+    width: 100%; } }
+
+.profile-content {
+  padding: 10px;
+  width: 60vw;
+  display: flex;
+  flex-wrap: wrap; }
+
+.user-section {
+  padding: 10px;
+  width: 20vw;
+  border: solid 1px black;
+  font-size: 1rem;
+  display: flex;
+  flex-wrap: wrap; }
+
+.user-section > h4 {
+  text-align: center; }
+
+.user-groups > h4 {
+  text-align: center; }
 
 .group-content {
-  width: 100vw;
-  height: 100vh;
+  width: 20vw;
   background: url(https://cdn.pixabay.com/photo/2014/12/15/17/18/cafe-569349__340.jpg);
   background-repeat: no-repeat;
   background-size: cover;

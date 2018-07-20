@@ -12,23 +12,62 @@
 //   });
 
 
-document.getElementById('sendChat').onclick = function(){
-  var theMessage = document.getElementById('message').value;
-  var newRow = document.createElement('div');
+// document.getElementById('sendChat').onclick = function(){
+//   var theMessage = document.getElementById('message').value;
+//   var newRow = document.createElement('div');
 
-  newRow.className = 'sending';
-  newRow.innerHTML = `
-  <div class="col-xs-5"> 
-    <div class="aMess">${theMessage}</div>
-  </div>
-  `;
-  document.getElementById('chatArea').appendChild(newRow);
-};
+//   newRow.className = 'sending';
+//   newRow.innerHTML = `
+//   <div class="col-xs-5"> 
+//     <div class="aMess">${theMessage}</div>
+//   </div>
+//   `;
+//   document.getElementById('chatArea').appendChild(newRow);
+// };
 
-//push users into group
-document.getElementById('').onclick = function(){
+// //push users into group
+// document.getElementById('').onclick = function(){
   
-};
+// };
+
+// var modal = document.getElementById('modal1');
+
+// var btn = document.getElementById("signing");
+
+// var span = document.getElementsByClassName("close")[0];
+ 
+// btn.onclick = function() {
+//     modal.style.display = "block";
+//     console.log(btn)
+// }
+
+// span.onclick = function() {
+//     modal.style.display = "none";
+// }
+
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
+
+function dropdown() {
+    document.getElementById("myDrops").classList.toggle("show")
+}
+
+window.onclick = function(event){
+    if(!event.target.matches('.btn')){
+        var theDrops = document.getElementsByClassName('');
+        var i;
+        for(i = 0; i < theDrops.length; i++){
+            var openDropdown = theDrops[i];
+            if(openDropdown.classList.contains('show')){
+                openDropdown.classList.remove('show');
+            }
+
+        }
+    }
+}
 
 // $('#openChat').click(function(){
 

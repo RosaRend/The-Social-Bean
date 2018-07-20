@@ -5,7 +5,7 @@
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link href="https://transloadit.edgly.net/releases/uppy/v0.26.0/dist/uppy.min.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -14,22 +14,23 @@
   </head>
   <body>
     <nav>
-      <a href="/"><img src="/images/bean-icon.png" alt="The Social Bean"></a>
-      <span class="nav-links">
+      <a href="/"><img src="/images/bean-icon.png" alt="The Social Bean">The Social Bean</a>
+
+      {{#if theUser}}
+        <div class="display-name">
+         <h3> Hello {{theUser.username}}! </h3>
+        </div>
+      {{/if}}
+
+        {{!-- <button onclick="dropdown()" class="btn"></button> --}}
+      <div id="myDrops" class="nav-links">
       <a href="/signup">Sign In Here</a> |
       <a href="/user/page/{{theUser._id}}"> User Page </a> |
       <a href="/login">Log Back In</a> |
       <a href="/logout">logout</a> |
-
-      {{#if theUser}}
-        <span>
-          Hello {{theUser.username}}!
-        </span>
-      {{/if}}
-
-  </span>
+      </div>
   
-</nav>
+    </nav>
 
     {{{body}}}
     <script src="https://transloadit.edgly.net/releases/uppy/v0.26.0/dist/uppy.min.js"></script>

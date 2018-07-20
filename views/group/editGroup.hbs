@@ -1,0 +1,20 @@
+<form action="/group/{{group._id}}/update" method="post" enctype="multipart/form-data">
+
+  <div class="group-master">
+    <h1>Barista: {{theUser.name}}</h1>
+  </div>
+
+  <label>Set the scene for your Cafe:</label>
+  <input type="file" name="photo">
+  <br>
+  <label>Name</label>
+  <br>
+  <input type="text" name="name" value="{{group.name}}">
+  <br>
+  <label>Description</label>
+  <br>
+  <textarea name="description" cols="20" rows="10">{{group.description}}</textarea>
+  <br>
+  {{!-- Time to Grind some Beans! --}}
+  <button type="submit">Let's open up Shop!</button>
+</form>
