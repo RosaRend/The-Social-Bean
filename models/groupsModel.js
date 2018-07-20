@@ -8,7 +8,8 @@ const groupSchema = new Schema({
   image: {type: String},
   name: String,
   // members: {type: Schema.Types.ObjectId, ref: 'Users'},
-  description: String 
+  description: String,
+  posts: Object 
 });
 
 const Group = mongoose.model('Group', groupSchema);

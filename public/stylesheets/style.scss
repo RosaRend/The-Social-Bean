@@ -57,37 +57,7 @@ nav > a > img{
   // display: flex;
   align-self: flex-start;
 }
-// @media screen and(max-width: 600px){
-//   nav{
-//     width: 20px;
-//     overflow: hidden;
-//     position: relative;
-//     display: inline-block;
-//     transition: height 0.5s ease-out;
-//   }
-//   .btn{
-//   background-color: chocolate;
-//   padding: 16px;
-//   font-size: 16px;
-//   border: solid 1px #000;
-//   }
-//   .btn:hover, .btn:focus{
-//     background-color: burlywood;
-//   }
-//   .nav-links{
-//     display: none;
-//     position: absolute;
-//     min-width: 150px;
-//     z-index: 1;
-//     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-//   }
-//   .show {
-//     display: block;
-//   }
-//   .nav-links a:hover{
-//     background-color: #ddd;
-//   }
-// }
+
 .signUp-container{
   width: 100vw;
   height: 100vh;
@@ -188,15 +158,19 @@ nav > a > img{
 .profile{
   width: 98vw;
   height: 100vh;
-  background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
 .max-min{
   max-width: 30vw;
   max-height: 30vw;
 }
-
+#background-personal{
+  background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 marquee{
   font-size: 20px;
 }
@@ -234,20 +208,34 @@ section{
   // border: solid 1px black;
   height: 40vh;
   display: flex;
+  font-size: 25px;
   flex-wrap: wrap;
   justify-content: center;
 }
 .profile-content{
   padding: 10px;
   width: 50vw;
-  display: flex;
+  height: 350px;
+  border: 5px #7e7878 solid;
+  border-radius: 20px;
+  overflow: auto;
+  // display: flex;
   // flex-wrap: wrap;
+}
+.btn-stuff > button{
+  background-color: rgb(179, 176, 176);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 .user-section{
   padding: 10px;
   width: 25vw;
   text-shadow: #fff 2px 5px 6px;
-  // height: 450px;
+  height: 65vh;
   border: solid 5px grey;
   box-shadow: -5px 5px 50px #000 ;
   font-size: 1rem;
@@ -255,7 +243,7 @@ section{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
+  
 }
 
 .user-section > h4{
@@ -266,8 +254,8 @@ section{
   text-align: center;
 }
 .group-content{
-  width: 25vw;
-  // height: 100vh;
+  width: 98vw;
+  height: 98vh;
   background: url(https://cdn.pixabay.com/photo/2014/12/15/17/18/cafe-569349__340.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -279,4 +267,34 @@ section{
 .content{
   width: 100vw;
   float: left;
+}
+
+.group-page{
+  width: 98vw;
+  height: 100vh;
+  // background: url(/images/cubano.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: space-around;  
+}
+
+.max-min2{
+  max-width: 10vw;
+  max-height: 10vw;
+  display: block;
+  // margin-right: 5em;
+}
+.post-page{
+  width: 98vw;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1522148543752-8cdaa654a796?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0cab69fa83484f8879c04f61a90ebd4&auto=format&fit=crop&w=500&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
 }

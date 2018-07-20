@@ -1,33 +1,33 @@
+  <div id="background-personal">
+
   <header>
     <div>
       <h1>Welcome</h1>
       <div>
         <h3>What's brewing in the community?</h3>
         <div class="per-Page-Stuff">
-          <marquee behavior="" direction="">All users are Welcome.</marquee>
+          <marquee behavior="" direction="">
+             {{#each theUser.groupsJoined}}
+      {{this.image}}
+      {{this.name}}
+    {{/each}}
+    <div class="per-Page-Stuff">
+      <p>Don't forget to check out the <b><a href="/groups">Cafe's</a></b> .</p>
+    </div>
+          </marquee>
         </div>
       </div>
     </div>
   </header>
 <div class="profile">
 <section>
-  <aside class="user-groups">
-    <h3>Cafe's</h3>
-    {{#each theUser.groupsJoined}}
-      {{this.image}}
-      {{this.name}}
-    {{/each}}
-    <div class="per-Page-Stuff">
-      <p>Don't forget you can always join a new <b><a href="/groups">Cafe</a></b> anytime.</p>
-    </div>
-  </aside>
+    <a class="btn-stuff" href="/user/page/{{theUser._id}}/post"><button>Click Me</button></a>
   <aside class="profile-content">
 
-    <a href="/user/page/{{theUser._id}}/post"><button>Click Me</button></a>
     {{#each theUser.posts}}
-      <img class="max-mix" src="{{theUser.posts.post}}" alt="">
+      <img class="max-min" src="{{this.post}}" alt="">
     {{/each}}
-      <hr>
+      
   </aside>
 
   <aside class="user-section">
@@ -55,3 +55,4 @@
 </section>
 
 </div>
+  </div>

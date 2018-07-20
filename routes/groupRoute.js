@@ -65,9 +65,10 @@ route.get('/group/:id/edit', (req, res, next) => {
 });
 
 
-route.post('/group/:id/update', (req, res, next)=>{
+route.post('/group/:id/update', uploadCloud.single('photo'), (req, res, next)=>{
   // console.log('body is: ', req.body)
   Group.findByIdAndUpdate(req.params.id, {
+    image: req.file.url,
     name: req.body.name,
     description: req.body.description
   })
@@ -89,6 +90,8 @@ route.post('/groups/:id/remove', (req, res, next)=>{
     next(err);
   });
 });
+
+
 
 //uploadCloud.single('photo')
 

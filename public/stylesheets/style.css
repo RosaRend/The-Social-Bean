@@ -138,14 +138,16 @@ nav > a > img {
 
 .profile {
   width: 98vw;
-  height: 100vh;
-  background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
-  background-repeat: no-repeat;
-  background-size: cover; }
+  height: 100vh; }
 
 .max-min {
   max-width: 30vw;
   max-height: 30vw; }
+
+#background-personal {
+  background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; }
 
 marquee {
   font-size: 20px; }
@@ -173,18 +175,31 @@ section {
   width: 25vw;
   height: 40vh;
   display: flex;
+  font-size: 25px;
   flex-wrap: wrap;
   justify-content: center; }
 
 .profile-content {
   padding: 10px;
   width: 50vw;
-  display: flex; }
+  height: 350px;
+  border: 5px #7e7878 solid;
+  border-radius: 20px;
+  overflow: auto; }
+
+.btn-stuff > button {
+  background-color: #b3b0b0;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
 
 .user-section {
   padding: 10px;
   width: 25vw;
   text-shadow: #fff 2px 5px 6px;
+  height: 65vh;
   border: solid 5px grey;
   box-shadow: -5px 5px 50px #000;
   font-size: 1rem;
@@ -199,7 +214,8 @@ section {
   text-align: center; }
 
 .group-content {
-  width: 25vw;
+  width: 98vw;
+  height: 98vh;
   background: url(https://cdn.pixabay.com/photo/2014/12/15/17/18/cafe-569349__340.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -209,5 +225,27 @@ section {
 .content {
   width: 100vw;
   float: left; }
+
+.group-page {
+  width: 98vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.max-min2 {
+  max-width: 10vw;
+  max-height: 10vw;
+  display: block; }
+
+.post-page {
+  width: 98vw;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1522148543752-8cdaa654a796?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b0cab69fa83484f8879c04f61a90ebd4&auto=format&fit=crop&w=500&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
 
 /*# sourceMappingURL=style.css.map */

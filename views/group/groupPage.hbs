@@ -1,4 +1,6 @@
 
+<div class="group-page">
+
 <div>
   <h2>Create your own <a href="/groups/new">Cafe</a>!</h2>
   
@@ -7,7 +9,7 @@
   <div><span id="numOfGroups"></span> Available Groups</div>
     {{#each listOfGroups}}
       <div>
-        <img src="{{this.image}}" alt="">
+        <img class="max-min2" src="{{this.image}}" alt="">
         
         <h3><a href='/group/{{this._id}}'>{{this.name}}</a></h3>
         <p>{{this.description}}</p>
@@ -21,4 +23,5 @@
      </div>
      <hr>
     {{/each}}
+</div>
 </div>
