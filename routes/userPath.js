@@ -56,12 +56,6 @@ userRoute.post("/login", passport.authenticate("local", {
   passReqToCallback: true
 }));
 
-// userRoute.get('/user/Page', (req, res, next)=>{
-//   // res.render('user/userPersonalPage');
-//   // userRoute.get('/user/Page', (req, res, next)=>{
-//     res.render("user/userPersonalPage", { User: req.user });
-// });
-
 userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, next)=>{
 
   Coffee.find()
@@ -97,6 +91,8 @@ userRoute.post('/user/page/:id/post', uploadCloud.single('aPost'), (req, res, ne
     next(err)
   });
 });
+
+
 userRoute.get('/user/page/:id/post', (req, res, next)=>{
 
   User.findById(req.params.id)
