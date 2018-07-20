@@ -1,13 +1,4 @@
 <div class="profile">
-<header>
-  <h1>Welcome</h1>
-  <div>
-    <h3>What's brewing in the community?</h3>
-    <div class="per-Page-Stuff">
-      New Stuff Here.
-    </div>
-  </div>
-</header>
 <section>
   <aside class="user-groups">
     <h3>Cafe's</h3>
@@ -21,23 +12,28 @@
   </aside>
   <aside>
     <div>
-      <h4>Feed</h4>
-      <p>What the user has posted.</p>
+      <h1>Welcome</h1>
+      <div>
+        <h3>What's brewing in the community?</h3>
+        <div class="per-Page-Stuff">
+          New Stuff Here.
+        </div>
+      </div>
     </div>
   </aside>
   <aside class="user-section">
     
-    <div>
+    {{!-- <div>
       <img src="{{theUser.image}}" alt="You">
-    </div>
-    <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
+    </div> --}}
     {{!-- <span class="edit-icon"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></span> --}}
     {{#if theUser.profile}}
+      <img class="profile-pic" src="{{theUser.profile.pic}}" alt="">
+      <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
       <p>Bio: {{theUser.profile.bio}}</p>
       <p>Favorite Saying: <i>{{theUser.profile.quote}}</i></p>
       <p>Favorite Spot: <b>{{theUser.profile.fav}}</b></p>
       <p>Preferred Cup of Joe: {{coffee.name}}</p>
-      <img src="{{theUser.profile.pic}}" alt="">
     {{/if}}
   </aside>
 

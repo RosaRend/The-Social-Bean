@@ -11,6 +11,13 @@
         
         <h3><a href='/group/{{this._id}}'>{{this.name}}</a></h3>
         <p>{{this.description}}</p>
+
+        <a href="/group/{{this._id}}/update">Just Changing the filter</a>
+
+        <form action="/groups/{{this._id}}/remove" method="post">
+          <button>Turn into Coffee Grinds!</button>
+        </form>
+
      </div>
      <hr>
     {{/each}}

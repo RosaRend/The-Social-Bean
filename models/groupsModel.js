@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
-const User        = require('../models/users');
+const Users    = ('../models/users')
 
 const groupSchema = new Schema({
-  image: {type: String, defult: "../public/images/groupDefault.jpeg"},
+  barista: {type: Schema.Types.ObjectId, ref: 'User'},
+  image: {type: String},
   name: String,
-  members: [{
-    num: Number,
-
-  }],
+  // members: {type: Schema.Types.ObjectId, ref: 'Users'},
   description: String 
 });
 

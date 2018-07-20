@@ -56,6 +56,11 @@ section {
 .user-groups > h4 {
   text-align: center; }
 
+.profile-pic {
+  width: 30px;
+  border: solid 5px #a5572a;
+  border-radius: 50% 50%; }
+
 .user-groups {
   padding: 10px;
   width: 250px;
@@ -93,9 +98,14 @@ section {
   background-repeat: no-repeat;
   background-size: cover; }
 
-.page-content {
-  border: solid 1px black;
-  float: right; }
+.group-content {
+  width: 100vw;
+  height: 100vh;
+  background: url(https://cdn.pixabay.com/photo/2014/12/15/17/18/cafe-569349__340.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap; }
 
 .content {
   width: 100vw;

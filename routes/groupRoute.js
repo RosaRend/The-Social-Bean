@@ -11,7 +11,7 @@ const Group       = require('../models/groupsModel');
 
 route.get('/groups', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
   Group.find()
-
+  .populate('barista')
   .then((listOfGroups)=>{
     res.render('group/groupPage', {listOfGroups});
   })
@@ -20,11 +20,14 @@ route.get('/groups', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
   });
 });
 
+//enter the group
+// route.get('', );
+
 route.get('/groups/new', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
   Group.find()
 
   .then((aNewGroup)=>{
-    console.log(aNewGroup);
+    console.log('Hello from line 23', aNewGroup);
     res.render('group/newGroup', {aNewGroup});
   })
   .catch((err)=>{
@@ -32,15 +35,17 @@ route.get('/groups/new', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
   });
 });
 
-route.post('/groups/create', (req, res, next)=>{
+route.post('/groups/create', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const newGroup = new Group({
     name: req.body.name,
-    image: req.body.image,
+    image: req.file.url,
     description: req.body.description
   });
+  
   newGroup.save()
   .then((response)=>{
-    res.redirect('/groups');
+    console.log(newGroup);
+    res.redirect(`/groups`);
   })
   .catch((err)=>{
     next(err);
@@ -50,13 +55,20 @@ route.post('/groups/create', (req, res, next)=>{
 route.post('/group/:id/update', (req, res, next)=>{
   Group.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
+    description: req.body.description
+  })
+  .then((theGroup)=>{
+    res.redirect('/groups');
+  })
+  .catch((err)=>{
+    next('An error trying to update', err);
   });
 });
 
 route.post('/groups/:id/remove', (req, res, next)=>{
   Group.findByIdAndRemove(req.params.id)
   .then((reponse)=>{
-    res.redirect('/group/groupPage');
+    res.redirect('/groups');
   })
   .catch((err)=>{
     next(err);
@@ -65,11 +77,12 @@ route.post('/groups/:id/remove', (req, res, next)=>{
 
 //uploadCloud.single('photo')
 
-route.get('/group/:id', (req, res, next)=>{
+route.get('/group/:id', ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const id = req.params.id;
 
   // console.log(id)
   Group.findById(id)
+  .populate('user')
   .then((theGroup)=>{
     res.render('group/oneGroup', {theGroup});
   })
