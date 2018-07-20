@@ -7,15 +7,18 @@ const Schema   = mongoose.Schema;
     image: {type: String, default: 'https://designdroide.com/images/abstract-user-icon-4.svg'},
     groupsJoined:  [{
       name: String,
-      image: String
+      image: String,
+      path: String
     }],
-    profile: [{
-      theBio: String,
-      theQuote: String,
-      theFavPlace: String,
-      coffee: String,
-      photo: String
-    }],
+    // profile: [{
+    //   theBio: String,
+    //   theQuote: String,
+    //   theFavPlace: String,
+    //   coffee: String,
+    //   photo: String, 
+    //   path: String
+    // }],
+    profile: Object,
     password: String},
     {timestamps: true}
   );

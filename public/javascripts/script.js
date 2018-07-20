@@ -15,7 +15,7 @@
 document.getElementById('sendChat').onclick = function(){
   var theMessage = document.getElementById('message').value;
   var newRow = document.createElement('div');
-  
+
   newRow.className = 'sending';
   newRow.innerHTML = `
   <div class="col-xs-5"> 
@@ -25,6 +25,10 @@ document.getElementById('sendChat').onclick = function(){
   document.getElementById('chatArea').appendChild(newRow);
 };
 
+//push users into group
+document.getElementById('').onclick = function(){
+  
+};
 
 // $('#openChat').click(function(){
 

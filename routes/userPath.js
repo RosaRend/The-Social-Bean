@@ -9,7 +9,7 @@ const multer      = require('multer');
 const uploadCloud = require('../config/cloudinary');
 const User        = require('../models/users');
 const Coffee      = require('../models/coffeeModel');
-
+// const 
 userRoute.get('/signup', (req, res, next)=>{
   
   res.render('user/signupPage');
@@ -79,35 +79,59 @@ userRoute.get('/user/profileInfo/:id', ensureLogin.ensureLoggedIn() ,(req, res, 
     next(err);
   });
 });
-//image: req.file.url
+// image: req.file.url
 
-userRoute.post('/user/profileInfo/:id', (req, res, next)=>{
+
+
+userRoute.post('/user/profileInfo/:id', uploadCloud.single('photo'),  (req, res, next)=>{
+  
   const userBio = {
     bio:  req.body.theBio,
     quote: req.body.theQuote,
     fav: req.body.theFavPlace,
-    pic: req.body.photo
+    pic: req.file.url,
+    coffee: req.body.coffee
   };
   const id = req.params.id;
 
-  console.log('From line 92, the id ', id);
+  console.log('From line 92, the id ', userBio);
 
-  User.findByIdAndUpdate(id, {$push: {profile: userBio}
+  // User.findByIdAndUpdate(id, {$push: {profile: userBio}})
+  User.findById(id)
   .then((response)=>{
-    res.redirect(`user/userPersonalPage/`, response);
+    console.log("response after updating info ===================== ", response);
+    response.set({profile: userBio});
+    return response.save()
+    .then(() => {
+
+      res.redirect(`/user/page/${response._id}`);
+    })
   })
   .catch((err)=>{
     next(err);
   })
-  });
+  // });
 });
 
 userRoute.get('/user/page/:id', ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const id = req.params.id;
   User.findById(id)
   .then((theUser)=>{
-    console.log(req.params.id);
-    res.render('user/userPersonalPage', {theUser});
+    console.log("user info on route to personal page >>>>>>>>>>>>>>>>>>>>>> ", theUser)
+    if(theUser.profile){
+
+      Coffee.findById(theUser.profile.coffee)
+      .then((coffeeFromDB) => {
+        var data = {
+          theUser: theUser,
+          coffee: coffeeFromDB
+        };
+        console.log("coffee from db ::::::::::::::::::::::: ", coffeeFromDB)
+        res.render('user/userPersonalPage', data);
+      });
+    } else {
+      res.render('user/userPersonalPage', {theUser});
+    }
   })
   .catch((err)=>{
     console.log('can get user from data');
