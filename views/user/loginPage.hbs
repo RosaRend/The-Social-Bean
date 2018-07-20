@@ -1,31 +1,40 @@
-<h1>Login</h1>
 
-{{#if errorMessage}}
-<div>{{errorMessage}}</div>
-{{/if}}
+<div class="login-container">
+  <div class="content-container">
 
+    <h1>Login</h1>
+    
+    {{#if errorMessage}}
+    <div>{{errorMessage}}</div>
+    {{/if}}
 
+    <form action="" method="post">
+      <div>
 
-<form action="" method="post">
+      <label>Username</label>
+      <br>
+      <input type="text" id="username" name="username">
+      <br>
+      <label>Password</label>
+      <br>
+      <input type="password" id="password" name="password">
+      <br>
 
-  <label>Username</label>
-  <input type="text" id="username" name="username">
+      {{#if message}}
+      <div>{{message}}</div>
+      {{/if}}
 
-  <label>Password</label>
-  <input type="password" id="password" name="password">
+        {{!-- <div>
+      <label>
+      
+      <input type="checkbox" checked="checked" name="remember">
+        Rememer this bean
+      </label>
+        </div> --}}
 
-
-  {{#if message}}
-  <div>{{message}}</div>
-  {{/if}}
-
-    <div>
-  <label>
-
-  <input type="checkbox" checked="checked" name="remember">
-    Rememer this bean
-  </label>
-    </div>
-
-  <button type="submit">To the Coffee Pot!</button>
-</form>
+      <button type="submit">To the Coffee Pot!</button>
+      </div>
+    </form>
+  
+  </div>
+</div>

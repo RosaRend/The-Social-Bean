@@ -4,7 +4,7 @@
       <div>
         <h3>What's brewing in the community?</h3>
         <div class="per-Page-Stuff">
-          New Stuff Here.
+          <marquee behavior="" direction="">All users are Welcome.</marquee>
         </div>
       </div>
     </div>
@@ -21,7 +21,15 @@
       <p>Don't forget you can always join a new <b><a href="/groups">Cafe</a></b> anytime.</p>
     </div>
   </aside>
-  <aside class="profile-content"></aside>
+  <aside class="profile-content">
+
+    <a href="/user/page/{{theUser._id}}/post"><button>Click Me</button></a>
+    {{#each theUser.posts}}
+      <img class="max-mix" src="{{theUser.posts.post}}" alt="">
+    {{/each}}
+      <hr>
+  </aside>
+
   <aside class="user-section">
     
     {{!-- <div>
@@ -30,11 +38,17 @@
     {{!-- <span class="edit-icon"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></span> --}}
     {{#if theUser.profile}}
       <img class="profile-pic" src="{{theUser.profile.pic}}" alt="">
-      <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
+      <br>
+      <h1>Hello <a href="/user/page/{{theUser._id}}">{{theUser.username}}</a>!</h1>
       <p>Bio: {{theUser.profile.bio}}</p>
       <p>Favorite Saying: <i>{{theUser.profile.quote}}</i></p>
       <p>Favorite Spot: <b>{{theUser.profile.fav}}</b></p>
       <p>Preferred Cup of Joe: {{coffee.name}}</p>
+      {{#if theUser.coffee._id}}
+      <p>Description: {{coffee.description}}</p>
+      <p>Place of Origin: {{coffee.origin}}</p>
+      <p>Served: {{coffee.served}}</p>
+      {{/if}}
     {{/if}}
   </aside>
 

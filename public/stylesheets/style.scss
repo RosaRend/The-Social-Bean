@@ -1,8 +1,9 @@
 body {
   padding: 0;
   margin: 0 auto;
-  // overflow: hidden;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  // overflow-y: hidden;
+  // overflow: scroll;
+  font: 14px Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 a {
@@ -87,31 +88,69 @@ nav > a > img{
 //     background-color: #ddd;
 //   }
 // }
-
+.signUp-container{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=217692eafea198d67733b9ee9c3f99d7&auto=format&fit=crop&w=500&q=60);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.content-container > form > div > label{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  
+}
+.content-container > form > div > button{
+  background-color: coral;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.content-container{
+  padding: 25px;
+  background-color: #fff;
+  font-size: 20px;
+  // margin-top: 5%;
+  // margin-bottom: 5%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-container{
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://cdn.pixabay.com/photo/2017/04/25/08/02/coffee-beans-2258839__340.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
+.content-contain-login{
+  padding: 25px;
+  background-color: #fff;
+  font-size: 20px;
+  padding: 30px;
+  // margin-top: 5%;
+  // margin-bottom: 5%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .nav-links{
   text-decoration-style: none;
-}
-
-header{
-  text-align: center;
-  border: solid 1px black;
-}
-
-.per-Page-Stuff{
-  color: #7e7878;
-  vertical-align: bottom;
-}
-section{
-  display: flex;
-  justify-content: space-between;
-}
-
-.user-groups{
-  padding: 10px;
-  width: 250px;
-  height: 450px;
-  border: solid 1px black;
-  align-self: flex-start;
 }
 .members{
   display: flex;
@@ -141,37 +180,82 @@ section{
 }
 
 .profile-pic{
-  width: 10px;
+  max-height: 50px;
   border: solid 5px rgb(165, 87, 42);
   border-radius: 50% 50%;
+  display: block;
 }
 .profile{
-  width: 100vw;
+  width: 98vw;
   height: 100vh;
   background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
   background-repeat: no-repeat;
-  background-size: 100vw;
+  background-size: cover;
 }
-@media screen and (min-width: 500px){
-  .group-content, .profile-content, .user-section{
-    width: 100%;
+.max-min{
+  max-width: 30vw;
+  max-height: 30vw;
+}
+
+marquee{
+  font-size: 20px;
+}
+
+@media only screen 
+// and (min-width: 375px)
+and (max-width: 500px)
+// and(resoution: 150dpi)
+{
+  .user-groups, .profile-content, .user-section{
+    // width: 100%;
+    display: flex;
+    flex-direction: column;
   }
+}
+
+header{
+  text-align: center;
+  border: solid 1px black;
+  height: 30vh;
+}
+
+.per-Page-Stuff{
+  color: #7e7878;
+  vertical-align: bottom;
+}
+section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-groups{
+  padding: 10px;
+  width: 25vw;
+  // border: solid 1px black;
+  height: 40vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .profile-content{
   padding: 10px;
-  width: 60vw;
+  width: 50vw;
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 .user-section{
   padding: 10px;
-  width: 20vw;
+  width: 25vw;
+  text-shadow: #fff 2px 5px 6px;
   // height: 450px;
-  border: solid 1px black;
+  border: solid 5px grey;
+  box-shadow: -5px 5px 50px #000 ;
   font-size: 1rem;
   // align-self: flex-end;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
 }
 
 .user-section > h4{
@@ -182,7 +266,7 @@ section{
   text-align: center;
 }
 .group-content{
-  width: 20vw;
+  width: 25vw;
   // height: 100vh;
   background: url(https://cdn.pixabay.com/photo/2014/12/15/17/18/cafe-569349__340.jpg);
   background-repeat: no-repeat;

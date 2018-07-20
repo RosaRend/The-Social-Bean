@@ -4,21 +4,23 @@
 <form action="/user/profileInfo/{{theUser._id}}" method="post" enctype="multipart/form-data">
 
   <div>
+    <label>Add a profile image:</label>
+    <br>
   <input type="file" name="photo">
   <br>
-    <label for="">Bio</label>
+    <label for="">Bio:</label>
     <br>
     <textarea name="theBio" id="bio" cols="20" rows="10" placeholder="Let people know what type of bean you are. Silly Bean. Healthy Bean. Fancy Bean."></textarea>
   </div>
 
   <div>
-    <label for="">Favorite Quote or Saying</label>
+    <label for="">Favorite Quote or Saying:</label>
     <br>
     <textarea name="theQuote" id="quote" cols="20" rows="10"></textarea>
   </div>
 
   <div>
-    <label for="">Favorite Place to Be</label>
+    <label for="">Favorite Place to Be:</label>
     <br>
     <input type="text" id="favPlace" name="theFavPlace">
   </div>

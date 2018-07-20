@@ -19,6 +19,7 @@ const Schema   = mongoose.Schema;
     //   path: String
     // }],
     profile: Object,
+    posts: Object,
     password: String},
     {timestamps: true}
   );
