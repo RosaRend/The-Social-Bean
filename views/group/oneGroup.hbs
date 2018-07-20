@@ -1,7 +1,7 @@
 <div class="group-content">
 <header>
 
-  The Page Content
+  {{!-- The Page Content --}}
 
 </header>
 
@@ -26,19 +26,20 @@
 
     <div id="send">
       <button id="sendChat" type="button">Send</button>
+      <br>
     <div id="chatArea"></div>
     </div>
 
     <br>
     </div>
 
-    <form action="/group/{{_.id}}" method="post" enctype="multipart/form-data">
-      <input type="file" name="photo">
-      <div class="content">
-        <p>Posts</p>
-        <button type="submit">submit</button>
-      </div>
-    </form>
+    <a href="/group/{{group._id}}/post"><button>Post</button></a>
+
+    <div>
+      {{#each group.posts}}
+      <img class="max-min" src="{{this.posted}}" alt="">
+      {{/each}}
+    </div>
 
 </div>
 

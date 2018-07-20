@@ -22,6 +22,28 @@ route.get('/groups', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
 
 //enter the group
 // route.get('', );
+route.get('/group/:id/post', (req, res, next)=>{
+  Group.findById(req.params.id)
+  .then((FromDB)=>{
+    console.log('Hello');
+    res.render('group/addpost', {group: FromDB});
+  });
+});
+
+route.post('/group/:id/post', uploadCloud.single('post'), (req, res, next)=>{
+  const thePost = {
+    posted: req.file.url
+  };
+  const id  = req.params.id;
+
+  Group.findOneAndUpdate(id, {$push: {post: thePost}})
+  .then((response)=>{
+    res.redirect(`/group/${response._id}`);
+  })
+  .catch((err)=>[
+    next(err)
+  ]);
+});
 
 route.get('/groups/new', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
   Group.find()
@@ -34,6 +56,9 @@ route.get('/groups/new', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
     next(err);
   });
 });
+
+
+
 
 route.post('/groups/create', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   const newGroup = new Group({
