@@ -36,7 +36,7 @@
       <img src="{{theUser.image}}" alt="You">
     </div> --}}
     {{!-- <span class="edit-icon"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></span> --}}
-    {{#if theUser.profile}}
+    {{!-- {{theUser.profile}} --}}
       <img class="profile-pic" src="{{theUser.profile.pic}}" alt="">
       <br>
       <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
@@ -52,7 +52,7 @@
       <p>Description: {{coffee.description}}</p>
       <p>Place of Origin: {{coffee.origin}}</p>
       <p>Served: {{coffee.served}}</p>
-      {{/if}}
+      {{!-- {{/if}} --}}
     {{/if}}
   </aside>
 
