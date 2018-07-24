@@ -145,7 +145,7 @@ nav > a > img {
   max-height: 30vw; }
 
 #background-personal {
-  background: url(https://cdn.pixabay.com/photo/2015/05/31/10/54/coffee-791045_960_720.jpg);
+  background: url(/images/coffee-2306471.jpg);
   background-repeat: no-repeat;
   background-size: cover; }
 
@@ -185,7 +185,8 @@ section {
   height: 350px;
   border: 5px #7e7878 solid;
   border-radius: 20px;
-  overflow: auto; }
+  overflow: auto;
+  display: flex; }
 
 .btn-stuff > button {
   background-color: #b3b0b0;
@@ -201,10 +202,10 @@ section {
   text-shadow: #fff 2px 5px 6px;
   height: 65vh;
   border: solid 5px grey;
+  border-radius: 20px;
   box-shadow: -5px 5px 50px #000;
   font-size: 1rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center; }
 
 .user-section > h4 {

@@ -12,7 +12,7 @@
       {{this.name}}
     {{/each}}
     <div class="per-Page-Stuff">
-      <p>Don't forget to check out the <b><a href="/groups">Cafe's</a></b> .</p>
+      <p>Don't forget to check out the <b><a href="/groups">Cafe's</a></b>.</p>
     </div>
           </marquee>
         </div>
@@ -29,20 +29,24 @@
     {{/each}}
       
   </aside>
-{{theUser.profile}}
+{{!-- {{theUser.profile}} --}}
   <aside class="user-section">
     
-    <div>
+    {{!-- <div>
       <img src="{{theUser.image}}" alt="You">
-    </div>
+    </div> --}}
     {{!-- <span class="edit-icon"><img src="/images/edit-pencil-icon(2).jpg.png" alt=""></span> --}}
     {{#if theUser.profile}}
       <img class="profile-pic" src="{{theUser.profile.pic}}" alt="">
       <br>
       <h1>Hello <a href="/user/profileInfo/{{theUser._id}}">{{theUser.username}}</a>!</h1>
+      <br>
       <p>Bio: {{theUser.profile.bio}}</p>
+      <br>
       <p>Favorite Saying: <i>{{theUser.profile.quote}}</i></p>
+      <br>
       <p>Favorite Spot: <b>{{theUser.profile.fav}}</b></p>
+      <br>
       <p>Preferred Cup of Joe: {{coffee.name}}</p>
       {{#if theUser.coffee._id}}
       <p>Description: {{coffee.description}}</p>
