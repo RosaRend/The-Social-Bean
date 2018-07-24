@@ -183,10 +183,12 @@ section {
   padding: 10px;
   width: 50vw;
   height: 350px;
+  background-color: burlywood;
   border: 5px #7e7878 solid;
   border-radius: 20px;
   overflow: auto;
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .btn-stuff > button {
   background-color: #b3b0b0;
@@ -205,7 +207,9 @@ section {
   border-radius: 20px;
   box-shadow: -5px 5px 50px #000;
   font-size: 1rem;
+  align-self: flex-end;
   display: flex;
+  flex-direction: column;
   justify-content: center; }
 
 .user-section > h4 {
