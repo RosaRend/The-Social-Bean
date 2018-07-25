@@ -150,7 +150,9 @@ nav > a > img{
 }
 
 .profile-pic{
-  max-height: 50px;
+  margin-top: 5vh;
+  max-width: 15vw;
+  // max-height: 15vh;
   border: solid 5px rgb(165, 87, 42);
   border-radius: 50% 50%;
   display: block;
@@ -190,7 +192,7 @@ and (max-width: 500px)
 header{
   text-align: center;
   border: solid 1px black;
-  height: 30vh;
+  height: 25vh;
 }
 
 .per-Page-Stuff{

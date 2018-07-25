@@ -39,9 +39,3 @@ window.onclick = function(event){
 //   });
 
 // });
-
-// $('#sendChat').click(function(){
-//   const theBio = $('#chatmessage')
-//   const theQuote = $()
-//   const theFavPlace = $()
-// })

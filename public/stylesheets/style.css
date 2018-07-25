@@ -131,7 +131,8 @@ nav > a > img {
   height: 100%; }
 
 .profile-pic {
-  max-height: 50px;
+  margin-top: 5vh;
+  max-width: 15vw;
   border: solid 5px #a5572a;
   border-radius: 50% 50%;
   display: block; }
@@ -160,7 +161,7 @@ marquee {
 header {
   text-align: center;
   border: solid 1px black;
-  height: 30vh; }
+  height: 25vh; }
 
 .per-Page-Stuff {
   color: #7e7878;
