@@ -5,11 +5,10 @@ const userRoute   = express.Router();
 const ensureLogin = require('connect-ensure-login');
 const multer      = require('multer');
 
-
 const uploadCloud = require('../config/cloudinary');
 const User        = require('../models/users');
 const Coffee      = require('../models/coffeeModel');
-// const 
+ 
 userRoute.get('/signup', (req, res, next)=>{
   
   res.render('user/signupPage');

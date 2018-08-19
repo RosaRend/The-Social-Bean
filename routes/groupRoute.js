@@ -1,6 +1,4 @@
 const express     = require('express');
-// const bcrypt      = require('bcryptjs');
-// const passport    = require('passport');
 const ensureLogin = require('connect-ensure-login');
 const route       = express.Router();
 const multer      = require('multer');
@@ -56,8 +54,6 @@ route.get('/groups/new', ensureLogin.ensureLoggedIn(),  (req, res, next)=>{
     next(err);
   });
 });
-
-
 
 
 route.post('/groups/create', uploadCloud.single('photo'), ensureLogin.ensureLoggedIn(), (req, res, next)=>{
